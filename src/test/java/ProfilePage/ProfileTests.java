@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 
 public class ProfileTests extends TestObject {
     @DataProvider(name = "getUsers")
+    
     public Object[][] getUsers() {
         return new Object[][]{
                 {"TestMail_5@gmail.com", "LucyVasileva1", "LucyVasileva"},
