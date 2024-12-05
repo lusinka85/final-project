@@ -45,5 +45,13 @@ public class ProfileTests extends TestObject {
 
         String actualUserName = profilePage.getUserName();
         Assert.assertEquals(actualUserName, name, "The username is incorrect!");
+
+        profilePage.editProfile("QA Engineer");
+
+        String updatedInfo = profilePage.getPublicInfo();
+        Assert.assertEquals(updatedInfo, "QA Engineer", "The public information was not updated correctly!");
+
+        profilePage.saveProfile();
+
     }
 }

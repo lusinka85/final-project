@@ -15,6 +15,15 @@ public class ProfilePage {
     @FindBy(tagName = "h2")
     private WebElement username;
 
+    @FindBy(xpath = "//button[text()='Edit']")
+    private WebElement editButton;
+
+    @FindBy(id = "publicInformation")
+    private WebElement publicInfoField;
+
+    @FindBy(xpath = "//button[text()='Save']")
+    private WebElement saveButton;
+
     public ProfilePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -28,7 +37,21 @@ public class ProfilePage {
     public String getUserName() {
         return username.getText();
     }
+
+    public ProfilePage editProfile(String newPublicInfo) {
+        editButton.click();
+        publicInfoField.clear();
+        publicInfoField.sendKeys(newPublicInfo);
+        saveButton.click();
+        return this;
+    }
+
+    public String getPublicInfo() {
+        return publicInfoField.getText();
+    }
+
+    public ProfilePage saveProfile() {
+        saveButton.click();
+        return this;
+    }
 }
-
-
-
